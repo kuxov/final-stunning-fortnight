@@ -11,8 +11,6 @@ public class LoginTest {
     public static LoginPage loginPage;
     public static ProfilePage profilePage;
     public static WebDriver driver;
-
-    @BeforeClass
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = new ChromeDriver();
@@ -23,10 +21,21 @@ public class LoginTest {
         driver.get(ConfProperties.getProperty("loginpage")); }
 
     @Test
+    public void invalidPassTest() {
+        setup();
+        loginPage.inputLogin(ConfProperties.getProperty("login"));
+        loginPage.inputPasswd("123456");
+        loginPage.clickLoginBtn();
+        Assert.assertEquals("Неправильно указан логин и/или пароль", loginPage.getErrMsg());
+        driver.quit();}
+    @Test
     public void loginTest() {
+        setup();
         loginPage.inputLogin(ConfProperties.getProperty("login"));
         loginPage.inputPasswd(ConfProperties.getProperty("password"));
         loginPage.clickLoginBtn();
         String user = profilePage.getUserName();
-        Assert.assertEquals("technoPol20 technoPol20", user); }
+        Assert.assertEquals("technoPol20 technoPol20", user);
+        driver.quit();}
+
 }
