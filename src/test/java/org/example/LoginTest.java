@@ -1,17 +1,15 @@
 package org.example;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
+
 public class LoginTest {
     public static LoginPage loginPage;
     public static ProfilePage profilePage;
     public static WebDriver driver;
-    public static void setup() {
+   public static void setup() {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
@@ -27,7 +25,8 @@ public class LoginTest {
         loginPage.inputPasswd("123456");
         loginPage.clickLoginBtn();
         Assert.assertEquals("Неправильно указан логин и/или пароль", loginPage.getErrMsg());
-        driver.quit();}
+        driver.quit();
+        }
     @Test
     public void loginTest() {
         setup();
@@ -36,6 +35,7 @@ public class LoginTest {
         loginPage.clickLoginBtn();
         String user = profilePage.getUserName();
         Assert.assertEquals("technoPol20 technoPol20", user);
-        driver.quit();}
+        driver.quit();
+        }
 
 }
