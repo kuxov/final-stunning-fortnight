@@ -9,7 +9,7 @@ public class ProfilePage {
     public ProfilePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver; }
-    @FindBy(xpath = "//*[@id=\"hook_Block_Navigation\"]/div/div/div[1]/a/div")
+    @FindBy(xpath = "//*[contains(@class, 'tico ellip')]")
     private WebElement userMenu;
     public String getUserName() {
         String userName = userMenu.getText();

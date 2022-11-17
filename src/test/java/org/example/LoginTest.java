@@ -37,5 +37,4 @@ public class LoginTest {
         Assert.assertEquals("technoPol20 technoPol20", user);
         driver.quit();
         }
-
 }
