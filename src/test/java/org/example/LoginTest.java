@@ -28,18 +28,22 @@ public class LoginTest {
     @Test
     @DisplayName("invalid password auth test")
     public void invalidPassTest() {
-        loginPage.inputLogin(ConfProperties.getProperty("login"));
-        loginPage.inputPasswd("123456");
-        loginPage.clickLoginBtn();
+        loginPage
+                .inputLogin(ConfProperties.getProperty("login"))
+                .inputPasswd(ConfProperties.getProperty("invalid_pass"))
+                .clickLoginBtn();
+
         assertEquals("Неправильно указан логин и/или пароль", loginPage.getErrMsg());
         }
     @Test
     @DisplayName("valid username and password auth test")
     public void loginTest() {
-        loginPage.inputLogin(ConfProperties.getProperty("login"));
-        loginPage.inputPasswd(ConfProperties.getProperty("password"));
-        loginPage.clickLoginBtn();
+        loginPage
+                .inputLogin(ConfProperties.getProperty("login"))
+                .inputPasswd(ConfProperties.getProperty("password"))
+                .clickLoginBtn();
+
         String user = profilePage.getUserName();
-        assertEquals("technoPol20 technoPol20", user);
+        assertEquals(ConfProperties.getProperty("bot"), user);
         }
 }

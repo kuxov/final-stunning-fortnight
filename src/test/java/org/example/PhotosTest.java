@@ -41,9 +41,12 @@ public class PhotosTest {
     @Disabled("чтобы не насоздавал миллион альбомов")
     public void createAlbumTest(String name) {
         profilePage.toPhotosPage();
-        photosPage.startCreatingAlbum();
-        photosPage.inputAlbumTitle(name);
-        photosPage.createAlbum();
+
+        photosPage
+                .startCreatingAlbum()
+                .inputAlbumTitle(name)
+                .createAlbum();
+
         assumeTrue(photosPage.albumIsEmpty());
     }
 

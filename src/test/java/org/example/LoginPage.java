@@ -22,14 +22,18 @@ public class LoginPage {
 
     @FindBy(xpath = "//*[contains(@class, 'input-e login_error')]")
     private WebElement passErr;
-    public void inputLogin(String login) {
-        loginField.sendKeys(login); }
+    public LoginPage inputLogin(String login) {
+        loginField.sendKeys(login);
+    return this;
+    }
 
-    public void inputPasswd(String passwd) {
-        passwdField.sendKeys(passwd); }
+    public LoginPage inputPasswd(String passwd) {
+        passwdField.sendKeys(passwd);
+    return this;}
 
-    public void clickLoginBtn() {
-        loginBtn.click(); }
+    public LoginPage clickLoginBtn() {
+        loginBtn.click();
+    return this;}
 
     public String getErrMsg(){
         return passErr.getText();
