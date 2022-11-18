@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Tests;
+import org.example.Utils.ConfProperties;
+import org.example.Pages.LoginPage;
+import org.example.Pages.ProfilePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
