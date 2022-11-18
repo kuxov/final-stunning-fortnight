@@ -42,7 +42,7 @@ public class PhotosTest {
     @DisplayName("creating an album test")
     @ParameterizedTest
     @ValueSource(strings = { "test3", "test4", "test5" })
-    //@Disabled("чтобы не насоздавал миллион альбомов")
+    @Disabled("чтобы не насоздавал миллион альбомов")
     public void createAlbumTest(String name) {
         profilePage.toPhotosPage();
 
