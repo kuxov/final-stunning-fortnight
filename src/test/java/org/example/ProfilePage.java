@@ -35,7 +35,7 @@ public class ProfilePage {
 
     public void uploadPhoto()
     {
-        uploadPhotoBtn.sendKeys("C:\\Users\\vnkuk\\IdeaProjects\\stunning-fortnight\\src\\test\\resources\\ava.png");
+        uploadPhotoBtn.sendKeys(ConfProperties.getProperty("path_to_pic"));
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(confirmProfilePicUpload));
         confirmProfilePicUpload.click();
     }

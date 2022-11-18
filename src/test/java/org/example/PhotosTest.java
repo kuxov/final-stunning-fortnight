@@ -37,7 +37,7 @@ public class PhotosTest {
 
     @DisplayName("creating an album test")
     @ParameterizedTest
-    @ValueSource(strings = { "test1", "test2", "test3" })
+    @ValueSource(strings = { "test3", "test4", "test5" })
     @Disabled("чтобы не насоздавал миллион альбомов")
     public void createAlbumTest(String name) {
         profilePage.toPhotosPage();
@@ -50,7 +50,7 @@ public class PhotosTest {
         assumeTrue(photosPage.albumIsEmpty());
     }
 
-    @DisplayName("search for existing test2 album")
+    @DisplayName("search for existing test1/2 album")
     @ParameterizedTest
     @ValueSource(strings = { "test1", "test2" })
     public void searchForExistingAlbum(String name)
