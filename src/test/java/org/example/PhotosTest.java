@@ -60,4 +60,5 @@ public class PhotosTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         assumeTrue(photosPage.albumFound());
     }
+
 }
