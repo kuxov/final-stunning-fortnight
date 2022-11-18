@@ -38,12 +38,23 @@ public class PhotosTest {
     @DisplayName("creating an album test")
     @ParameterizedTest
     @ValueSource(strings = { "test1", "test2", "test3" })
-    @Disabled //чтобы не насоздавал миллион альбомов...
+    @Disabled("чтобы не насоздавал миллион альбомов")
     public void createAlbumTest(String name) {
         profilePage.toPhotosPage();
         photosPage.startCreatingAlbum();
         photosPage.inputAlbumTitle(name);
         photosPage.createAlbum();
         assumeTrue(photosPage.albumIsEmpty());
+    }
+
+    @DisplayName("search for existing test2 album")
+    @ParameterizedTest
+    @ValueSource(strings = { "test1", "test2" })
+    public void searchForExistingAlbum(String name)
+    {
+        profilePage.toPhotosPage();
+        photosPage.inputSearchTitle(name);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        assumeTrue(photosPage.albumFound());
     }
 }
