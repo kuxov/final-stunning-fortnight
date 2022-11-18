@@ -28,16 +28,16 @@ public class PhotosPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void inputSearchTitle(String name)
+    public void inputSearchTitle()
     {
         new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(searchField));
-        searchField.sendKeys(name);
+        searchField.sendKeys("test2");
     }
 
     public boolean albumFound()
     {
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(driver -> driver.findElement(By.xpath("//*[contains(text(), 'test2')]")));
+                .until(driver -> driver.findElement(By.xpath("//*[contains(text(), 'test2') and not (contains(@id, 'field_query'))]")));
         return element != null;
     }
     public boolean albumIsEmpty()
