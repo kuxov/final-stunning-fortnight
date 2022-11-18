@@ -1,6 +1,7 @@
 package org.example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +26,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("invalid password auth test")
     public void invalidPassTest() {
         loginPage.inputLogin(ConfProperties.getProperty("login"));
         loginPage.inputPasswd("123456");
@@ -32,6 +34,7 @@ public class LoginTest {
         assertEquals("Неправильно указан логин и/или пароль", loginPage.getErrMsg());
         }
     @Test
+    @DisplayName("valid username and password auth test")
     public void loginTest() {
         loginPage.inputLogin(ConfProperties.getProperty("login"));
         loginPage.inputPasswd(ConfProperties.getProperty("password"));
